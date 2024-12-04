@@ -1,33 +1,27 @@
-file = open("C:\\Users\\Franek\\Desktop\\AOC\\DAY4\\database4.txt")
+file = open("C:\\Users\\Franek\\Desktop\\AOC\\DAY4\\database4.txt")  #wczytuje plik
 tekst = file.readlines()
 dane = []
-for linia in tekst:
+for linia in tekst:            #wczytuje dane do tabeli
     dane.append(linia.strip())
 
-print(dane)
 wynik = 0
 
-for x in range(len(dane)):
-    for y in range(len(dane[0])):
-            if dane[x][y]=='A':
-                if x-1>=0:
+for y in range(len(dane)):      #po wierszach nazwanych y            
+    for x in range(len(dane[0])): #po znakach nazwynych x (kolumnach)
+            if dane[y][x]=='A':  #sprawdzam kiedy ==A
+                if y-1>=0:   #czy istnieje wiersz nad
                     
-                    if x+1<len(dane[0]):
+                    if y+1<len(dane[0]): #czy instnieje wiercz pod
                         
-                        if y-1>=0:
+                        if x-1>=0:  #czy istnieje wiersz na lewa
                             
-                            if y+1<len(dane[0]):
+                            if x+1<len(dane[0]): #czy istnieje wiersz na prawo
                                
                                 
-                                if dane[x-1][y-1]+dane[x][y]+dane[x+1][y+1] == 'MAS' or dane[x-1][y-1]+dane[x][y]+dane[x+1][y+1] == 'SAM':
+                                if dane[y-1][x-1]+dane[y][x]+dane[y+1][x+1] == 'MAS' or dane[y-1][x-1]+dane[y][x]+dane[y+1][x+1] == 'SAM':  #spawdzam czy na ukos
                                     
-                                    if dane[x+1][y-1]+dane[x][y]+dane[x-1][y+1] == 'MAS' or dane[x+1][y-1]+dane[x][y]+dane[x-1][y+1] == 'SAM':
-                                        wynik = wynik+1
+                                    if dane[y+1][x-1]+dane[y][x]+dane[y-1][x+1] == 'MAS' or dane[y+1][x-1]+dane[y][x]+dane[y-1][x+1] == 'SAM': #sprawdzam czy na ukos z drugiej strony
+                                        wynik = wynik+1   #jeżeli spełnia wszytkie te warunki dodaje do wyniku
                                        
                 
-                
-                       
-
-
-
 print(wynik)
