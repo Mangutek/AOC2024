@@ -1,12 +1,12 @@
-file = open("C:\\Users\\Admin\\Desktop\\AOC\\DAY2\\database2.txt")
+file = open("C:\\Users\\Admin\\Desktop\\AOC\\DAY2\\database2.txt")  #wczytuje plik
 tekst = file.readlines()
 data = []
 odp = 0
 
-for line in tekst:
+for line in tekst:  #wprowadzam dane do tabeli 
     data.append(line.strip().split())
 
-def czysorted(list):
+def czysorted(list):  #sprawdzamy czy posortowane
     wynik = 0
     wynik2 = 0
     for i in range(len(list)-1):
@@ -21,9 +21,7 @@ def czysorted(list):
 
 
             
-            
-            
-def czydobry(el):
+def czydobry(el):            #sprawdzam czy spełnia obie warunki
     if czysorted(el) == 1:
         if all(abs(int(el[i])-int(el[i+1])) <=3 for i in range(len(el)-1)):
             return 1
@@ -32,12 +30,12 @@ def czydobry(el):
     else:
         return 0
     
-def copymatrix(list1, list2):
+def copymatrix(list1, list2):  #funkcja do kopiowania tablic, bo python to idiota
     for el in list1:
         list2.append(el)
 
 
-for el in data:
+for el in data:        #bruteforce ---- sprawdza czy dobrze usuwając każdy element po kolei, aż zwróci 1
     if czydobry(el) == 1:
         odp = odp + 1
     else:
