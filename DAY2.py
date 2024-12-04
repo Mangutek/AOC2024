@@ -1,12 +1,12 @@
-file = open("C:\\Users\\Admin\\Desktop\\AOC\\DAY2\\database2.txt")
+file = open("C:\\Users\\Admin\\Desktop\\AOC\\DAY2\\database2.txt") #wczytuje plik
 tekst = file.readlines()
 data = []
 odp = 0
 
-for line in tekst:
+for line in tekst: #wczytuje dane do tabeli
     data.append(line.strip().split())
 
-def czysorted(list):
+def czysorted(list):            #funkcja sprawdza, czy jest posortowane
     wynik = 0
     wynik2 = 0
     for i in range(len(list)-1):
@@ -22,16 +22,11 @@ def czysorted(list):
 
 
             
-            
-            
-
-for el in data:
-    if czysorted(el) == 1:
-        if all(abs(int(el[i])-int(el[i+1])) <=3 for i in range(len(el)-1)):
+for el in data:                
+    if czysorted(el) == 1:    #sprawdzam czy jest posortowane
+        if all(abs(int(el[i])-int(el[i+1])) <=3 for i in range(len(el)-1)):    #sprawdzam czy wszystkie róznice są mniejsze od 3 (takie same wartości wykulczam w czysorted())
             print("tak")
             odp = odp + 1
-        else:
-            print('dupa2')
     else:
         print('nie')
 
