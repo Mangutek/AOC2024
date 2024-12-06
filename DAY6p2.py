@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np    #straszny bruteforce, ale działa 
 file = open("C:\\Users\\Franek\\Desktop\\AOC\\DAY6\\database6.txt") #wczytuje plik
 tekst = file.readlines()
 
